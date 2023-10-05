@@ -2,6 +2,7 @@ import 'package:courses/pages/home/home.dart';
 import 'package:courses/pages/mine/mine.dart';
 import 'package:courses/pages/study/study.dart';
 import 'package:courses/provider/currentIndexProvider.dart';
+import 'package:courses/themes/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
@@ -30,8 +31,11 @@ class _IndexPageState extends State<IndexPage> {
   final List pages = [
     {
       "appBar":AppBar(
-        title: Text("首页"),
         centerTitle: true,
+        leading: Icon(
+          Icons.sort,
+          size: 20,
+        ),
         elevation: 0,
       ),
       "page":HomePage()
@@ -54,6 +58,11 @@ class _IndexPageState extends State<IndexPage> {
     },
   ];
 
+  get isDarkMode {
+    var mode= Theme.of(context).brightness == Brightness.dark;
+    return mode;
+  }
+
   // late int current;
 
 
@@ -67,7 +76,30 @@ class _IndexPageState extends State<IndexPage> {
   Widget build(BuildContext context) {
     int current=Provider.of<CurrentIndexProvider>(context,listen: false).current;
     return Scaffold(
-      appBar: pages[current]['appBar'] ,
+      appBar: AppBar(
+        leading: Icon(
+          Icons.sort,
+          size: 24,
+          color: isDarkMode ? Colors.white:Colors.black,
+        ),
+        toolbarHeight: 50,
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(
+              right: 24
+            ),
+            child: Icon(
+              Icons.search,
+              size: 28,
+              color: isDarkMode ? Colors.white:Colors.black54,
+            ),
+          )
+        ],
+        centerTitle: true,
+        elevation: 0.5,
+        shadowColor: isDarkMode?AppColor.accentColorDark:AppColor.accentColor,
+        backgroundColor: isDarkMode ? AppColor.bodyColorDark:Colors.white,
+      ) ,
       body: pages[current]['page'],
       // bottomNavigationBar: BottomNavigationBar(
       //   items: navs,
@@ -80,7 +112,7 @@ class _IndexPageState extends State<IndexPage> {
       bottomNavigationBar: SafeArea(
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: isDarkMode ? Colors.black:Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(100)),
             boxShadow: [
               BoxShadow(
@@ -91,24 +123,28 @@ class _IndexPageState extends State<IndexPage> {
               )
             ],
           ),
+          clipBehavior: Clip.hardEdge,
           margin: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 3.0,vertical: 3),
+
             child: GNav(
               rippleColor: Colors.grey[300]!,
               hoverColor: Colors.grey[100]!,
-              tabBorderRadius: 15,
+              tabBorderRadius: 24,
               gap: 8,
-              activeColor: Colors.black,
+              activeColor: isDarkMode ?Colors.white:Colors.black,
               iconSize: 24,
+              backgroundColor: isDarkMode ? AppColor.accentColorDark:Colors.white,
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
               duration: Duration(milliseconds: 400),
-              tabBackgroundColor: Colors.grey[100]!,
-              color: Colors.black,
+              tabBackgroundColor:isDarkMode? Colors.black :  Colors.grey[100]!,
+              color: isDarkMode ?Colors.white:Colors.black,
               tabs: [
                 GButton(
                   icon: LineIcons.home,
                   text: '首页',
+
                 ),
                 GButton(
                   icon: LineIcons.heart,

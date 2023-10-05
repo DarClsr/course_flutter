@@ -1,4 +1,5 @@
 import 'package:courses/pages/index.dart';
+import 'package:courses/themes/app_theme.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'routes/routes.dart';
@@ -10,6 +11,7 @@ void main() {
   FluroRouter router=new FluroRouter();
   Routes.configRroutes(router);
   G.router=router;
+  Routes.router=router;
   runApp(
     MultiProvider(
       providers: [
@@ -32,10 +34,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Iwan课程',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      // theme: ThemeData(
+      //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      //   useMaterial3: true,
+      // ),
+      theme: Apptheme.light,
+      darkTheme: Apptheme.dark,
+      themeMode: ThemeMode.system,
       // home:IndexPage() ,
       initialRoute: "/",
       onGenerateRoute: G.router!.generator,

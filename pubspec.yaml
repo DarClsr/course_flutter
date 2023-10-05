@@ -39,6 +39,7 @@ dependencies:
   line_icons: ^2.0.3
   fluro: ^2.0.5
   provider: ^6.0.5
+  dio: ^5.3.3
 
 dev_dependencies:
   flutter_test:
@@ -66,6 +67,28 @@ flutter:
   assets:
      - assets/images/404.svg
      - assets/images/404.png
+     - assets/authors/stepanie_land.jpg
+     - assets/authors/sophie_mackintosh.jpg
+     - assets/authors/tara_conklin.jpg
+     - assets/authors/pam_jenoff.jpg
+     - assets/authors/karen_thompson_walker.jpg
+     - assets/authors/greer_hendricks.jpg
+     - assets/authors/fiona_barton.jpg
+     - assets/authors/whitney_scharer.jpg
+     - assets/authors/andrea_bartz.jpg
+     - assets/authors/kristen_roupenian.jpg
+     - assets/authors/yangsze_choo.jpg
+     - assets/books/an_anonymous_girl_by_greer_hendricks.jpg
+     - assets/books/the_water_cure_by_sophie_mackintosh.jpg
+     - assets/books/the_dreamers_by_karen_thompson.jpg
+     - assets/books/maid_by_stepanie_land.jpg
+     - assets/books/the_suspect_by_fiona_barton.jpg
+     - assets/books/the_lost_girls_of_paris_by_pam_jenoff.jpg
+     - assets/books/the_age_of_light_by_whitney_scharer.jpg
+     - assets/books/the_last_romantics_by_tara_conklin.jpg
+     - assets/books/the_night_tiger_by_yangsze_choo.jpg
+     - assets/books/the_lost_night_by_andrea_bartz.jpg
+     - assets/books/you_know_you_want_this_by_kristen_roupenian.jpg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

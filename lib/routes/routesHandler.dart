@@ -1,3 +1,5 @@
+import 'package:courses/model/book.dart';
+import 'package:courses/pages/bookDetail/bookDetail.dart';
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 import '../pages/index.dart';
@@ -12,6 +14,13 @@ var IndexHandler =
 var LoginHandler =
 Handler(handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
   return LoginPage();
+});
+
+
+var BookDetailHandler =
+Handler(handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
+  final Book book = context!.settings!.arguments as Book ;
+  return BookDetail(book: book);
 });
 
 
